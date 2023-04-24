@@ -4,9 +4,116 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS CHEAT SHEETS</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    
+    <!-- Container Start -->
+    <div class="container">
+        <!-- Box 1 Start-->
+        <div class="box-1">
+            <h1>Hello World</h1>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto veniam incidunt explicabo blanditiis culpa quas optio deserunt nulla dolorum in corporis, numquam quis architecto eaque mollitia? Quidem, blanditiis iusto. Necessitatibus dolorum rerum cum corporis beatae non explicabo? Dolore iste nobis hic nam necessitatibus excepturi, neque ea unde, atque amet tenetur!</p>  
+        </div>
+        <!-- Box 1 End -->
+        <!-- Box 2 Start -->
+        <div class="box-2">
+            <h1>Goodbye World</h1>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto veniam incidunt explicabo blanditiis culpa quas optio deserunt nulla dolorum in corporis, numquam quis architecto eaque mollitia? Quidem, blanditiis iusto. Necessitatibus dolorum rerum cum corporis beatae non explicabo? Dolore iste nobis hic nam necessitatibus excepturi, neque ea unde, atque amet tenetur!</p>  
+            <a class="button" href="#">Read More</a>
+        </div>
+        <!-- Box 2 End -->
+        <!-- Categories Start -->
+        <div class="categories">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="#">Category 1</a></li>
+                <li><a href="#">Category 2</a></li>
+                <li><a href="#">Category 3</a></li>
+                <li><a href="#">Category 4</a></li>
+            </ul>
+        </div>
+        <!-- Categories End -->
+
+        <form action="process.php" method="POST" class="contact-form">
+            <!-- First Name Field -->
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName"  placeholder="Enter First Name">
+            </div>
+            <br/>
+            <!-- Last Name Field -->
+            <div class="form-group">
+                <label for="lastName" >Last Name</label>
+                <input type="text" id="lastName" name="flastName"  placeholder="Enter Last Name">
+            </div>
+            <br/>
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email">
+            </div>
+            <br>
+            <!-- Message Field -->
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" placeholder="Enter message here..."></textarea>
+            </div>
+            <br>
+            <input class="button" type="submit" value="Submit">
+            </form>
+
+            <div class="block">
+                <h3>Heading</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad blanditiis provident similique dolorum unde totam pariatur minima eos, repudiandae modi!</p>
+            </div>
+
+            <div class="block">
+                <h3>Heading</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad blanditiis provident similique dolorum unde totam pariatur minima eos, repudiandae modi!</p>
+            </div>
+
+            <div class="block">
+                <h3>Heading</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad blanditiis provident similique dolorum unde totam pariatur minima eos, repudiandae modi!</p>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div id="main-block">
+                <h3>main Block</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore magni non, necessitatibus assumenda accusantium, tempore ab quasi tempora officiis quod consequuntur, deleniti quo iste? Fugiat obcaecati sed corporis maxime facilis!</p>
+            </div>
+
+            <div id="sidebar">
+                <h3>Sidebar</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste in expedita impedit molestiae fugit? Vero cum natus obcaecati doloremque possimus sunt assumenda eveniet ea qui sint, deleniti quod. Enim, totam.</p>
+            </div>
+
+           <div class="clearfix"></div> 
+
+
+           <div class="p-box">
+            <h1>Headding 1</h1>
+            <h2>Headding 2</h2>
+
+           </div>
+
+           <a class="button fix-me" href="">Fix me</a>
+
+           <div class="pseudo-selectors">
+               <ul>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+               </ul>
+           </div>
+    </div>
+    <!-- Container End -->
 </body>
 </html>
