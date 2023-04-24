@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML CHEAT SHEETS</title>
+    <style>
+        *{
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="html5.html"> go to blogs</a>
+    <!-- HEADINGS -->
+    <h1>Heading One</h1>
+    <h2>Heading Two</h2>
+    <h3>Heading Three</h3>
+    <h4>Heading Four</h4>
+    <h5>Heading Five</h5>
+    <h6>Heading Six</h6>
+
+    <!-- THESE ARE PARAGRAPHS EXAMPLES -->
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio qui rem nam quisquam officiis ex. Magni aliquid ullam sed at hic maiores porro ad voluptatibus cupiditate blanditiis minima consequatur ducimus minus, quam, a, soluta fugiat laborum repellendus id iusto similique. Nisi quibusdam dolore cum, vero earum possimus consectetur nulla maxime!</p>
+    
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio qui rem nam quisquam officiis ex. Magni aliquid ullam sed at hic maiores porro ad voluptatibus cupiditate blanditiis minima consequatur ducimus minus, quam, a, soluta fugiat laborum repellendus id iusto similique. Nisi quibusdam dolore cum, vero earum possimus consectetur nulla maxime!</p>
+
+    <!-- Inline Elements -->
+    <strong>This has a strong or bold tag</strong>
+    <a href="" target="_blank">This is an anchor tag</a>
+
+
+    <!-- LISTS -->
+    <!-- UNORDERED LISTS -->
+    <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+    </ul>
+
+    <!-- OREDRED LISTS -->
+    <ol>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+    </ol>
+
+    <!-- TABLES -->
+    <!--
+        !IMPORTANT NOTE: Do not use forms for layout. Use it only for tabular data only.
+     -->
+    <table>
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>AGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>William Anthony Corotan</td>
+                <td>williamcorotan@gmail.com</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>johndoe@gmail.com</td>
+                <td>42</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr />
+    <!-- FORMS -->
+    <form action="process.php" method="POST">
+        <!-- First Name Field -->
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName"  placeholder="Enter First Name">
+        </div>
+        <br/>
+        <!-- Last Name Field -->
+        <div>
+            <label for="lastName" >Last Name</label>
+            <input type="text" id="lastName" name="flastName"  placeholder="Enter Last Name">
+        </div>
+        <br/>
+        <!-- Email Field -->
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email">
+        </div>
+        <br>
+        <!-- Message Field -->
+        <div>
+            <label for="message">Message</label>
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Enter message here..."></textarea>
+        </div>
+        <br>
+        <!-- Gender Field -->
+        <div>
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <!-- Age Field -->
+        <div>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" >
+        </div>
+        <br>
+        <!-- Birthday Field -->
+        <div>
+            <label for="birthdate">Birthdate</label>
+            <input type="date" name="birthdate">
+        </div>
+        <div>
+            <input type="submit" name="submit" value="submit">
+        </div>
+
+        <!-- BUTTONS -->
+        <button>Click Me!!</button>
+
+        <br>
+        <!-- IMAGES -->
+        <a href="https://th.bing.com/th/id/OIP.Xyr9Zw5XAPMmiamYfxaelwHaE8?pid=ImgDet&rs=1">
+        <img src="https://th.bing.com/th/id/OIP.Xyr9Zw5XAPMmiamYfxaelwHaE8?pid=ImgDet&rs=1" alt="random picture" width="200px">
+        </a>
+
+        <!-- QUOTATIONS -->
+        <blockquote cite="google.com">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit debitis maiores modi non aliquam? Unde ratione vitae optio, ut, magnam voluptates aliquam animi, necessitatibus repellendus voluptas maiores totam. Velit fugiat tenetur eos facere non ipsum dolore voluptatibus sapiente dolorem, similique quis placeat autem laborum atque tempora facilis ut temporibus vero doloremque saepe ex, fuga nobis vel. Accusantium eaque eum doloremque excepturi cumque libero laborum error delectus blanditiis praesentium veniam est itaque molestiae, incidunt mollitia sequi quas animi quisquam, id voluptas suscipit dolor consectetur? Necessitatibus quaerat aut impedit porro! Quas culpa eaque natus soluta at commodi ea id mollitia excepturi nam!
+        </blockquote>
+
+        <p>The <abbr title="World Wide Web">WWW</abbr> is Awesome!!</p><span><cite>by Google</cite></span>
+    </form>
+</body>
+</html>
