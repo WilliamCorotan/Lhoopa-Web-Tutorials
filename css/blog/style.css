@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+
+/* Utils */
+.container{
+    width: 80%;
+    margin: auto;
+}
+.mt-4{
+    margin-top: 4rem;
+}
+
+.clearfix{
+    clear: both;
+}
+
+#main-header{
+    background-color: rgb(238, 94, 42);
+    padding: 1.5rem  3rem;
+    color: #f4f4f4;
+}
+
+
+/* Navbar */
+#navbar{
+    background-color: #222;
+    padding: 1.5rem 3rem ;
+}
+
+#navbar li {
+    display: inline;
+    margin-right: 10px ;
+}
+
+#navbar li a{
+    color: #f4f4f4;
+}
+
+
+/* Showcase */
+.showcase{
+    background-image: url('https://th.bing.com/th/id/R.972052f90fff552d36b57cc5011ea69b?rik=w%2fteZPvjC4yURQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f-KpHW4-zOauU%2fTl8q7NJNEbI%2fAAAAAAAAHAs%2fAL5Zp_I6qfk%2fs1600%2famazing%2bbackground%2bimages-2.jpg&ehk=47TdF2URgpSG%2bfgzYEqqswRxSxPVcKzXARVqVSqp1nQ%3d&risl=&pid=ImgRaw&r=0');
+    min-height: 50%;
+    color: #f4f4f4;
+    display: grid;
+    place-items:center;
+    text-align: center;
+    padding: 10rem;
+    line-height: 2rem;
+}
+
+/* Main Article */
+
+#main-article{
+    float: left;
+    width: 70%;
+    line-height: 1.5rem;
+    text-align: justify;
+    padding: 0 2rem;
+}
+
+
+#sidebar{
+    float: right;
+    width: 30%;
+    background-color: #222;
+    color: #f4f4f4;
+    padding: 2rem;
+}
+
+
+#main-footer{
+    background-color: #333;
+    padding: 1.5rem  3rem;
+    color: #f4f4f4;
+    text-align: center;
+}
