@@ -2,18 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    line-height: 2rem;
+    font-size: 1.4rem;
 }
 
 .text-center{
     text-align: center;
 }
 
-#div1, #div2{
+div{
     margin: auto;
     margin-top: .5rem;
     text-align: center;
     border: 2px solid black;
-    font: 24pt;
     height: 300px;
     width: 300px;
     position: relative;
