@@ -23,18 +23,24 @@ mysqli_close($con);
     <main>
     <a href="<?php echo ROOT_URL?>" class=" m-2 btn btn-dark"> < </a>
         <section class="container my-5">
-            <h1 class="text-center">POSTS</h1>
+            <h1 class="text-center">POSTS </h1>
             <div class="d-grid">
                 <div class="row">
-                            <div class="col-12 col-md-6 card text-white bg-primary mb-3 mx-auto h-100" style="max-width: 20rem;">
-                                <div class="card-header mt-2">
-                                    <h2>
-                                        <?php echo $post['title']?>
-                                    </h2>
+                            <div class="col text-white bg-primary h-100" >
+                                <div class=" py-3">
+                                    <div class="mb-5 d-flex ">
+                                        <h2 class=" text-white flex-grow-1">
+                                        <?php echo $post['title']?> 
+                                        </h2>
+                                        <span class=""><a  class="btn btn-info me-2" href="<?php echo ROOT_URL?>/edit.php/?id=<?php echo $post['id']?>">Edit</a></span>
+                                        <span class=""><a  class="btn btn-danger" href="<?php echo ROOT_URL?>/delete.php/?id=<?php echo $post['id']?>">delete</a></span>
+                                    </div>
+
                                     <small class="text-muted"><?php echo $post['author']?> <?php echo $post['created_at']?></small>
                                 </div>
-                                <div class="card-body d-flex flex-column">
+                                <div class=" d-flex flex-column">
                                     <p class="card-text "> <?php echo $post['body']?></p>
+
                             </div>
                     </div>
                 </div>
