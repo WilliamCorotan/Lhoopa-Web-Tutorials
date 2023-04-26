@@ -39,7 +39,7 @@ mysqli_close($con);
                 </div>
             </div>
         </section>
-        <a href="add.php" class="btn btn-success position-fixed end-0 bottom-0 m-2">Add new post</a>
+        <a href="<?php echo ROOT_URL?>/add.php" class="btn btn-success position-fixed end-0 bottom-0 m-2">Add new post</a>
     </main>
 
 <?php include('includes/footer.php')?>
