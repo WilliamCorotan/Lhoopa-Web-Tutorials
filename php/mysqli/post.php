@@ -33,8 +33,8 @@ mysqli_close($con);
                                     </h2>
                                     <small class="text-muted"><?php echo $post['author']?> <?php echo $post['created_at']?></small>
                                 </div>
-                                <div class="card-body d-flex flex-column h-100">
-                                    <p class="card-text flex-grow-1"> <?php echo $post['body']?></p>
+                                <div class="card-body d-flex flex-column">
+                                    <p class="card-text "> <?php echo $post['body']?></p>
                             </div>
                     </div>
                 </div>
