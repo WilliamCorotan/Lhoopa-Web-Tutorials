@@ -5,7 +5,7 @@
     <div class="navbar" id="navbarColor03">
       <ul class="navbar-nav ">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home
+          <a class="nav-link" href="<?php echo ROOT_URL ?>">Home
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
