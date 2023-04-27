@@ -26,9 +26,9 @@ mysqli_close($con);
             <h1 class="text-center">POSTS </h1>
             <div class="d-grid">
                 <div class="row">
-                            <div class="col text-white bg-primary h-100" >
+                            <div class="col text-white bg-primary h-100 p-4" >
                                 <div class=" py-3">
-                                    <div class="mb-5 d-flex ">
+                                    <div class=" d-flex ">
                                         <h2 class=" text-white flex-grow-1">
                                         <?php echo $post['title']?> 
                                         </h2>
@@ -38,7 +38,7 @@ mysqli_close($con);
 
                                     <small class="text-muted"><?php echo $post['author']?> <?php echo $post['created_at']?></small>
                                 </div>
-                                <div class=" d-flex flex-column">
+                                <div class=" d-flex flex-column border-top py-4">
                                     <p class="card-text "> <?php echo $post['body']?></p>
 
                             </div>

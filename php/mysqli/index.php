@@ -21,9 +21,9 @@ mysqli_close($con);
         <section class="container my-5">
             <h1 class="text-center">POSTS</h1>
             <div class="">
-                <div class="row">
+                <div class="row g-2">
                     <?php foreach($posts as $post):?>
-                            <div class="col-12 card text-white bg-primary mb-3 mx-auto " style="max-width: 20rem;">
+                            <div class="col-12 col-md-6 card text-white bg-primary mb-3 mx-auto " style="max-width: 20rem;">
                                 <div class="card-header mt-2">
                                     <h2>
                                         <?php echo $post['title']?>
