@@ -56,7 +56,7 @@ public function index(){
  * 
  */
 public function view($slug = NULL) {
-
+    $this->load->helper('form');
     $data['post'] = $this->post_model->get_posts($slug);
 
     if(empty($data['post'])){
@@ -112,6 +112,40 @@ public function create(){
         $this->post_model->insert();
         redirect('posts');
     }
+}
+
+public function edit($slug)
+{
+    $this->load->helper('form');
+    $data['post'] = $this->post_model->get_posts($slug);
+
+    if(empty($data['post'])){
+        show_404();
+    }
+
+    $data['title'] = "Edit Post - $slug";
+
+     /**
+     * 
+     * this loads the header, footer partials and the pages that is passed
+     * !!order does matter!!
+     * 
+     */
+    $this->load->view('partials/header', $data);
+    $this->load->view("pages/posts/edit", $data);
+    $this->load->view('partials/footer');
+
+}
+
+public function update(){
+   $this->post_model->update();
+   redirect('posts');
+}
+
+public function delete($id)
+{
+    $this->post_model->delete($id);
+    redirect('posts');
 }
 }
 ?>
