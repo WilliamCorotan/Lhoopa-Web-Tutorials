@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
-    <a class="navbar-brand" href="#"><?php echo APPLICATION_NAME?></a>
+    <a class="navbar-brand" href="<?= base_url()?>"><?php echo APPLICATION_NAME?></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,7 +12,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Blogs</a>
+          <a class="nav-link" href="<?= base_url()?>posts">Blogs</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url()?>about">About</a>
