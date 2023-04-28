@@ -51,8 +51,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['default_controller'] = 'pages/view';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+
+/**
+ * 
+ * Post_controller routing
+ * 
+ */
+$route['posts'] = 'posts/index';
+$route['posts/(:any)'] = 'posts/view/$1';
+
 
 /**
  * 
@@ -62,4 +69,15 @@ $route['translate_uri_dashes'] = FALSE;
  *      this is  the passed page_name
  */
 $route['(:any)'] = 'pages/view/$1';
+
+/**
+ * 
+ * default fallback routes
+ * !! always needs to be at the bottom
+ * 
+ */
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+
+
 
