@@ -14,13 +14,19 @@
 
     <!-- Post -->
     <article id="<?= $post['id'] ?>" class="mb-4 border-bottom">
-        <div class="post-title mb-2 ">
+        <div id="post-title" class="mb-2 ">
             <h3 class="m-0"><?= $post['title']?></h3>
             <small class="text-muted"> Posted on: <?= $post['created_at'] ?> </small>
         </div>
-        <div class="post-body pb-3">
-            <p><?= $post['body'] ?></p>
-            
+        <div id="post-body" class="pb-3">
+            <p class="text-justify"><?= $post['body'] ?></p>
+            <div class="d-flex gap-2">
+
+                <a href="<?= base_url()?>posts/edit/<?= $post['slug'] ?>" class="btn btn-success">Edit</a>
+                <?= form_open('/posts/delete/'.$post['id']); ?>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                <?= form_close(); ?>
+            </div>
         </div>
     </article>
 </section>

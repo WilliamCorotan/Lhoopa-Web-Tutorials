@@ -24,7 +24,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="body" class="form-label mt-4">Post Content</label>
-                <textarea class="form-control resize-none <?= (!empty(form_error('body'))) ? "border border-danger" : "" ?>" id="body" name="body" rows="3" placeholder="Add post content"><?= set_value('body') ?></textarea>
+                <textarea id="editor" class="form-control resize-none h-24 <?= (!empty(form_error('body'))) ? "border border-danger" : "" ?>" id="body" name="body" placeholder="Add post content"><?= set_value('body') ?></textarea>
                 <?php if(!empty(form_error('body'))): ?>
                     <small class="text-danger"><?= form_error('body')?></small>
                 <?php endif ?>
@@ -36,4 +36,6 @@
             <button type="submit" class="btn btn-primary mb-3">Create</button>
         <?= form_close()?>
     </article>
+
+
 </section>
