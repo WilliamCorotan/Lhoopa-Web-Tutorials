@@ -24,8 +24,8 @@ public function view($page = 'home'){
      * !!order does matter!!
      * 
      */
-    $this->load->view('partials/header');
-    $this->load->view("partials/pages/$page", $data);
+    $this->load->view('partials/header', $data);
+    $this->load->view("pages/$page", $data);
     $this->load->view('partials/footer');
 }
 }
