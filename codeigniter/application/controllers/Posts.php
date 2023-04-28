@@ -76,5 +76,42 @@ public function view($slug = NULL) {
     $this->load->view('partials/footer');
 
 }
+
+public function create(){
+    /**
+     * 
+     * loads form helper and  form validation
+     * 
+     */
+    $this->load->helper('form');
+    $this->load->library('form_validation');
+
+
+    $data['title'] = "Create Post";
+    /**
+     * 
+     * Setting form validation rules
+     * 
+     */
+    $this->form_validation->set_rules('title', 'Title', 'required');
+    $this->form_validation->set_rules('body', 'Body', 'required');
+
+    if($this->form_validation->run() === FALSE){
+        /**
+        * 
+        * this loads the header, footer partials and the pages that is passed
+        * !!order does matter!!
+        * 
+        */
+       $this->load->view('partials/header', $data);
+       $this->load->view("pages/posts/create", $data);
+       $this->load->view('partials/footer');
+    }
+    else{
+
+        $this->post_model->insert();
+        redirect('posts');
+    }
+}
 }
 ?>

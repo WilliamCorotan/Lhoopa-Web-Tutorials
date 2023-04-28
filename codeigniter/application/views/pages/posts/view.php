@@ -1,4 +1,5 @@
 <section class="mt-5 mx-auto">
+    <!-- Back Button -->
     <div>
         <a href="<?= base_url()?>posts" class="btn btn-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -6,18 +7,20 @@
             </svg>
         </a>
     </div>
+    <!-- Page heading -->
     <div class="text-center">
     <h2 class="display-3"> <?= $title ?> </h2>
     </div>
-    
-        <div id="<?= $post['id'] ?>" class="mb-4 border-bottom">
-            <div class="post-title mb-2 ">
-                <h3 class="m-0"><?= $post['title']?></h3>
-                <small class="text-muted"> Posted on: <?= $post['created_at'] ?> </small>
-            </div>
-            <div class="post-body pb-3">
-                <p><?= $post['body'] ?></p>
-                
-            </div>
+
+    <!-- Post -->
+    <article id="<?= $post['id'] ?>" class="mb-4 border-bottom">
+        <div class="post-title mb-2 ">
+            <h3 class="m-0"><?= $post['title']?></h3>
+            <small class="text-muted"> Posted on: <?= $post['created_at'] ?> </small>
         </div>
+        <div class="post-body pb-3">
+            <p><?= $post['body'] ?></p>
+            
+        </div>
+    </article>
 </section>
