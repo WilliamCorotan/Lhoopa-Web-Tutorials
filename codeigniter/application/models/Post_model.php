@@ -36,7 +36,7 @@ class Post_model extends CI_Model {
 
     }
 
-    public function insert()
+    public function insert($post_image)
     {
         $slug = url_title($this->input->post('title'));
 
@@ -44,7 +44,8 @@ class Post_model extends CI_Model {
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'body' => $this->input->post('body'),
-            'category_id' => $this->input->post('category_id')
+            'category_id' => $this->input->post('category_id'),
+            'image' => $post_image
         );
 
         return $this->db->insert('posts', $data);

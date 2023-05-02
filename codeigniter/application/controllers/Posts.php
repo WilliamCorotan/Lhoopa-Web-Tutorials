@@ -109,8 +109,35 @@ public function create(){
        $this->load->view('partials/footer');
     }
     else{
+        /**
+         * 
+         * file upload configurations
+         * 
+         */
+        $config['upload_path'] = './assets/images/posts/';
+        $config['allowed_types'] = 'gif|jpg|png|';
+        $config['max_size'] = '2048';
+        $config['encrypt_name'] = TRUE;
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        
+        // print_r($_FILES);
+        // die();
+        
+        if( ! $this->upload->do_upload('image')){
+            $errors = array('error' => $this->upload->display_errors());
+            $post_image = 'noimage.png';
+            print_r($errors);
 
-        $this->post_model->insert();
+        }
+        else{
+            $data = array('upload_data' => $this->upload->data());
+            $post_image = $data['upload_data']['file_name'];
+
+            print_r($data['upload_data']['file_name']);
+            
+        }
+        $this->post_model->insert($post_image);
         redirect('posts');
     }
 }

@@ -1,4 +1,3 @@
-<?php print_r($categories) ?>
 <section class="mt-5 mx-auto">
     <!-- Back Button -->
     <div>
@@ -15,7 +14,7 @@
 
     <!-- Post -->
     <article id="create-post-form" class="mb-4 border-bottom">
-        <?= form_open('posts/create') ; ?>
+        <?= form_open_multipart('posts/create') ; ?>
             <div class="form-group mb-3">
                 <label for="title" class="form-label">Post Title</label>
                 <input type="text" class="form-control <?= (!empty(form_error('title'))) ? "border border-danger" : "" ?>" id="title" name="title" aria-describedby="titleHelp" placeholder="Add title" value="<?= set_value('title') ?>">
@@ -39,6 +38,11 @@
                     <option value=<?= $category['id'] ?> id=<?= $category['id'] ?>  > <?= $category['name']?> </option>
                 <?php endforeach?>
                 </select>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label for="image" class="form-label mt-4">File Upload</label>
+                <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="image" name="image">
             </div>
             <!-- <div class="form-group">
                 <label for="formFile" class="form-label mt-4">Default file input example</label>

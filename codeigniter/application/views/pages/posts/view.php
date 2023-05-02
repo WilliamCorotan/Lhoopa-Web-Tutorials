@@ -19,6 +19,9 @@
             <small class="text-muted"> Posted on: <?= $post['created_at'] ?> </small>
         </div>
         <div id="post-body" class="pb-3">
+            <div class="w-75 mx-auto text-center">
+                <img class="img-fluid" src=<?= site_url() . "assets/images/posts/" . $post['image']?> alt=<?= $post['slug'] ?>>
+            </div>
             <p class="text-justify"><?= $post['body'] ?></p>
             <div class="d-flex gap-2">
 
