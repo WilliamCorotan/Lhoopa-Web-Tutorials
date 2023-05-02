@@ -1,3 +1,4 @@
+<?php print_r($categories) ?>
 <section class="mt-5 mx-auto">
     <!-- Back Button -->
     <div>
@@ -28,6 +29,16 @@
                 <?php if(!empty(form_error('body'))): ?>
                     <small class="text-danger"><?= form_error('body')?></small>
                 <?php endif ?>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="categories" class="form-label mt-4">Categories</label>
+                <select class="form-select" id="category_id" name="category_id">
+                    
+                <?php foreach($categories as $category): ?>
+                    <option value=<?= $category['id'] ?> id=<?= $category['id'] ?>  > <?= $category['name']?> </option>
+                <?php endforeach?>
+                </select>
             </div>
             <!-- <div class="form-group">
                 <label for="formFile" class="form-label mt-4">Default file input example</label>

@@ -8,10 +8,10 @@
         <div id="<?= $post['id'] ?>" class="mb-4 border-bottom">
             <div class="post-title mb-2 ">
                 <h3 class="m-0"><?= $post['title']?></h3>
-                <small class="text-muted"> Posted on: <?= $post['created_at'] ?> </small>
+                <small class="text-muted"> Posted on: <?= $post['created_at'] ?> in <span class="fw-semibold text-primary"><?= $post['name'] ?></span>  </small>
             </div>
             <div class="post-body pb-3">
-                <p class="text-justify"><?= $post['body'] ?></p>
+                <p class="text-justify"><?= word_limiter($post['body'],50 ) ?></p>
                 <a href="<?= site_url("/posts/".$post['slug']) ?>" type="button" class="btn btn-outline-primary">Read More</a>
             </div>
         </div>

@@ -88,6 +88,7 @@ public function create(){
 
 
     $data['title'] = "Create Post";
+    $data['categories'] = $this->post_model->get_categories();
     /**
      * 
      * Setting form validation rules
@@ -118,7 +119,7 @@ public function edit($slug)
 {
     $this->load->helper('form');
     $data['post'] = $this->post_model->get_posts($slug);
-
+    $data['categories'] = $this->post_model->get_categories();
     if(empty($data['post'])){
         show_404();
     }
@@ -146,6 +147,11 @@ public function delete($id)
 {
     $this->post_model->delete($id);
     redirect('posts');
+}
+
+
+public function get_categories(){
+   $this->db->query('SELECT posts.category_id, category.id FROM posts LEFT JOIN categories where posts.category_id = categories.id');
 }
 }
 ?>

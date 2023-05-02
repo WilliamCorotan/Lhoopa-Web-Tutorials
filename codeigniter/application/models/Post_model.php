@@ -9,7 +9,9 @@ class Post_model extends CI_Model {
      */
     public function __construct()
     {   
-       $this->load->database();
+        parent::__construct();
+        $this->load->model('category_model');
+        $this->load->database();
     }
 
     public function get_posts($slug = FALSE)
@@ -20,7 +22,7 @@ class Post_model extends CI_Model {
          * 
          */
         if ($slug === FALSE) {
-            $query = $this->db->order_by("id", "DESC")->get('posts');
+            $query = $this->db->order_by("posts.id", "DESC")->join('categories', 'posts.category_id = categories.id')->get('posts');
             return $query->result_array();
         }
 
@@ -42,6 +44,7 @@ class Post_model extends CI_Model {
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'body' => $this->input->post('body'),
+            'category_id' => $this->input->post('category_id')
         );
 
         return $this->db->insert('posts', $data);
@@ -53,6 +56,7 @@ class Post_model extends CI_Model {
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'body' => $this->input->post('body'),
+            'category_id' => $this->input->post('category_id')
         );
         $this->db->where('id', $this->input->post('id'));
         return $this->db->update('posts', $data);
@@ -64,5 +68,9 @@ class Post_model extends CI_Model {
         $this->db->delete('posts');
         return true;
     }
-
+    public function get_categories(){
+      $this->db->order_by('name');
+      $query = $this->db->query('SELECT DISTINCT categories.id, categories.name FROM posts right JOIN categories ON posts.category_id = categories.id');
+      return $query->result_array();
+    }
 }
