@@ -15,6 +15,9 @@
           <a class="nav-link" href="<?= base_url()?>posts">Blogs</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="<?= base_url()?>categories">Categories</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="<?= base_url()?>about">About</a>
         </li>
       </ul>
