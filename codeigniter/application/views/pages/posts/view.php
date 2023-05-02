@@ -31,5 +31,34 @@
                 <?= form_close(); ?>
             </div>
         </div>
+        <div>
+    <h3>Comments</h3>
+    <?php if($comments):?>
+        <?php foreach($comments as $comment):?>
+            <h5><?= $comment['body'] ?> [by <strong> <?= $comment['name']?> </strong>]</h5>
+        <?php endforeach?>
+    <?php else:?>
+        <p>No Comments</p>
+    <?php endif?>
+
+            <h3>Add Comment</h3>
+            <?= validation_errors()?>
+            <?= form_open('comments/create/' . $post['id'])  ?>
+                <div class="form-group mb-3">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="text" name="email" id="email">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="body" class="form-label">Comment</label>
+                    <textarea class="form-control" name="body" id="body" rows="3"></textarea>
+                </div>
+                <input type="hidden" name="slug" value="<?= $post['slug'] ?>">
+                <button class="btn btn-primary">Submit</button>
+            <?= form_close()?>
+        </div>
     </article>
 </section>

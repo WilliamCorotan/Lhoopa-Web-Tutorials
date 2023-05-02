@@ -16,6 +16,7 @@ public function __construct(){
      */
     parent::__construct();
     $this->load->model('post_model');
+    $this->load->model('comment_model');
     $this->load->helper('url_helper');
 
 }
@@ -58,6 +59,9 @@ public function index(){
 public function view($slug = NULL) {
     $this->load->helper('form');
     $data['post'] = $this->post_model->get_posts($slug);
+    $post_id = $data['post']['id'];
+    $data['comments'] = $this->comment_model->get_comments($post_id);
+
 
     if(empty($data['post'])){
         show_404();
