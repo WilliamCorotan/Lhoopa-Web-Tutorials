@@ -69,9 +69,20 @@ class Post_model extends CI_Model {
         $this->db->delete('posts');
         return true;
     }
+
     public function get_categories(){
       $this->db->order_by('name');
       $query = $this->db->query('SELECT DISTINCT categories.id, categories.name FROM posts right JOIN categories ON posts.category_id = categories.id');
       return $query->result_array();
+    }
+
+    public function filter_category($id){
+        $this->db->order_by('posts.id', 'DESC');
+        $this->db->join('categories', 'categories.id = posts.category_id');
+        $query = $this->db->get_where('posts', array('category_id' => $id));
+    //     echo "<pre>";
+    // print_r($query->result_array());
+    // die();
+        return $query->result_array();
     }
 }

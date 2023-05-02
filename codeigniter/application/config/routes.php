@@ -65,6 +65,18 @@ $route['posts/(:any)'] = 'posts/view/$1';
 
 /**
  * 
+ * Categories_controller routing
+ * 
+ */
+
+$route['categories'] = 'categories/index';
+$route['categories/create'] = 'categories/create';
+$route['categories/posts/(:any)'] = 'categories/posts/$1';
+
+
+
+/**
+ * 
  * This loads any pages in the "pages/view" controller
  * 
  * @var  string $1 
