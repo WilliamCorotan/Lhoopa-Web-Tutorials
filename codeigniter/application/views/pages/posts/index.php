@@ -1,3 +1,5 @@
+<?php print_r($this->session) ?>
+
 <section class="mt-5 mx-auto">
 
     <div class="text-center mb-5">

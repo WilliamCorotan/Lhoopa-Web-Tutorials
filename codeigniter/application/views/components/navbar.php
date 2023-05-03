@@ -21,6 +21,17 @@
           <a class="nav-link" href="<?= base_url()?>about">About</a>
         </li>
       </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url()?>users/register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url()?>users/login">Login</a>
+        </li>
+      </ul>
+
+
       <!-- <form class="d-flex">
         <input class="form-control me-sm-2" type="search" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
