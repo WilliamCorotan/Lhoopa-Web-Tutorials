@@ -142,9 +142,12 @@ public function create(){
             
         }
         $this->post_model->insert($post_image);
+        $this->session->set_flashdata('toast_data_danger', false);
+        $this->session->set_flashdata('toast_data_title', 'Created Post Successfully!');
+        $this->session->set_flashdata('toast_data_body', 'Your post has been created successfully!');
         redirect('posts');
     }
-}
+} 
 
 public function edit($slug)
 {
@@ -171,12 +174,18 @@ public function edit($slug)
 
 public function update(){
    $this->post_model->update();
+   $this->session->set_flashdata('toast_data_danger', false);
+   $this->session->set_flashdata('toast_data_title', 'Post Updated Successfully!');
+    $this->session->set_flashdata('toast_data_body', 'Your post has been updated successfully!');
    redirect('posts');
 }
 
 public function delete($id)
 {
     $this->post_model->delete($id);
+    $this->session->set_flashdata('toast_data_danger', true);
+    $this->session->set_flashdata('toast_data_title', 'Post Deleted Successfully!');
+    $this->session->set_flashdata('toast_data_body', 'Your post has been deleted!');
     redirect('posts');
 }
 
