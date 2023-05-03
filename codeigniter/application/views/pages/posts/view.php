@@ -23,6 +23,7 @@
                 <img class="img-fluid" src=<?= site_url() . "assets/images/posts/" . $post['image']?> alt=<?= $post['slug'] ?>>
             </div>
             <p class="text-justify"><?= $post['body'] ?></p>
+            <?php if($this->session->userdata('user_id') === $post['user_id']): ?>
             <div class="d-flex gap-2">
 
                 <a href="<?= base_url()?>posts/edit/<?= $post['slug'] ?>" class="btn btn-success">Edit</a>
@@ -30,6 +31,7 @@
                     <button type="submit" class="btn btn-danger">Delete</button>
                 <?= form_close(); ?>
             </div>
+            <?php endif ?>
         </div>
         <div>
     <h3>Comments</h3>

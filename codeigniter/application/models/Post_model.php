@@ -14,8 +14,11 @@ class Post_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_posts($slug = FALSE)
+    public function get_posts($slug = FALSE, $limit = FALSE, $offset = FALSE)
     {
+        if($limit){
+            $this->db->limit($limit, $offset);
+        }
         /**
          * 
          * gets all the posts from the database
@@ -45,6 +48,7 @@ class Post_model extends CI_Model {
             'slug' => $slug,
             'body' => $this->input->post('body'),
             'category_id' => $this->input->post('category_id'),
+            'user_id' => $this->session->userdata('user_id'),
             'image' => $post_image
         );
 
@@ -76,7 +80,10 @@ class Post_model extends CI_Model {
       return $query->result_array();
     }
 
-    public function filter_category($id){
+    public function filter_category($id , $limit = FALSE, $offset = FALSE){
+        if($limit){
+            $this->db->limit($limit, $offset);
+        }
         $this->db->order_by('posts.id', 'DESC');
         $this->db->join('categories', 'categories.id = posts.category_id');
         $query = $this->db->get_where('posts', array('category_id' => $id));

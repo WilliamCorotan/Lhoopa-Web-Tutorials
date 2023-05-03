@@ -33,11 +33,17 @@ public function index(){
 
 
 public function create(){
-    /**
+//redirects to login in if not authenticate
+if(!$this->session->userdata('logged_in')){
+    redirect('users/login');
+}
+
+/**
  * 
  * loads form helper and  form validation
  * 
  */
+
 $this->load->helper('form');
 $this->load->library('form_validation');
 
@@ -56,10 +62,22 @@ $this->load->library('form_validation');
     }
 }
 
-public function posts($id){
-    $data['title'] = $this->category_model->get_category($id)->name;
+public function posts($id, $offset = 0){
+    
+    $this->load->library('pagination');
+    $query = $this->post_model->filter_category($id);
+    $config['base_url'] = base_url() . "categories/posts/$id/";
+    $config['total_rows'] = count($query);
+    $config['per_page'] = 4;
+    $config['uri_segment'] = 4;
+    $config['attributes'] = array('class' => 'page-link');
+    
+    $this->pagination->initialize($config);
 
-    $data['posts'] = $this->post_model->filter_category($id);
+    $data['title'] = $this->category_model->get_category($id)->name;
+    
+    $data['posts'] = $this->post_model->filter_category($id,  $config['per_page'], $offset);
+    
 
     $this->load->view('partials/header', $data);
     $this->load->view("pages/posts/index", $data);

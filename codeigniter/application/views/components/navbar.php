@@ -17,18 +17,28 @@
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url()?>categories">Categories</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?= base_url()?>about">About</a>
-        </li>
       </ul>
 
       <ul class="navbar-nav ms-auto">
+        <?php if(!$this->session->userdata('logged_in')):?>
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url()?>users/register">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url()?>users/login">Login</a>
         </li>
+
+        <?php else: ?>
+          <li class="nav-item align-self-center">
+            <span class="">Welcome Back, <?= $this->session->userdata('username') ?></span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url()?>users/logout">Logout</a>
+          </li>
+
+        <?php endif ?>
+
+        
       </ul>
 
 

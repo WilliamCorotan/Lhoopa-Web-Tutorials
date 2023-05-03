@@ -9,4 +9,6 @@
             <li class="list-group-item"> <a href="<?= site_url('/categories/posts/') . $category['id'] ?>"><?= $category['name'] ?></a></li>
         </div>
     <?php endforeach ?>
+
+    
 </section>

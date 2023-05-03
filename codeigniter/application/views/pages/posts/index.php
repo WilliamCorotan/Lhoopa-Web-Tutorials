@@ -1,5 +1,3 @@
-<?php print_r($this->session) ?>
-
 <section class="mt-5 mx-auto">
 
     <div class="text-center mb-5">
@@ -26,4 +24,10 @@
             </div>
         </div>
     <?php endforeach ?>
+    <nav class="row">
+        <ul class="pagination col-6 offset-6">
+            <?php echo $this->pagination->create_links(); ?>
+        </ul>
+    </nav>
+
 </section>

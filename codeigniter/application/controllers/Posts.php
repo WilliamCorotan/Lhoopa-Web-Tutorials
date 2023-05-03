@@ -27,14 +27,25 @@ public function __construct(){
  * Displays all the posts from the database
  * 
  */
-public function index(){
+public function index($offset = 0){
+
+    $this->load->library('pagination');
+
+    $config['base_url'] = base_url() . '/posts/index/';
+    $config['total_rows'] = $this->db->count_all('posts');
+    $config['per_page'] = 4;
+    $config['uri_segment'] = 3;
+    $config['attributes'] = array('class' => 'page-link');
+
+
+    $this->pagination->initialize($config);
     /**
      * this assigns the page name to the title of the page
      * 
      */
     $data['title'] = "Latest Posts";
 
-    $data['posts'] = $this->post_model->get_posts();
+    $data['posts'] = $this->post_model->get_posts(FALSE, $config['per_page'], $offset);
 
     
     /**
@@ -82,6 +93,10 @@ public function view($slug = NULL) {
 }
 
 public function create(){
+    //redirects to login in if not authenticate
+    if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+    }
     /**
      * 
      * loads form helper and  form validation
@@ -151,6 +166,14 @@ public function create(){
 
 public function edit($slug)
 {
+    //redirects to login in if not authenticate
+    if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+    }
+    
+    if($this->session->userdata('user_id') !== $this->post_model->get_posts($slug)['user_id']){
+        redirect('posts');
+    }
     $this->load->helper('form');
     $data['post'] = $this->post_model->get_posts($slug);
     $data['categories'] = $this->post_model->get_categories();
@@ -159,6 +182,8 @@ public function edit($slug)
     }
 
     $data['title'] = "Edit Post - $slug";
+
+
 
      /**
      * 
@@ -173,6 +198,11 @@ public function edit($slug)
 }
 
 public function update(){
+    //redirects to login in if not authenticate
+    if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+    }
+
    $this->post_model->update();
    $this->session->set_flashdata('toast_data_danger', false);
    $this->session->set_flashdata('toast_data_title', 'Post Updated Successfully!');
@@ -182,6 +212,11 @@ public function update(){
 
 public function delete($id)
 {
+    //redirects to login in if not authenticate
+    if(!$this->session->userdata('logged_in')){
+        redirect('users/login');
+    }
+
     $this->post_model->delete($id);
     $this->session->set_flashdata('toast_data_danger', true);
     $this->session->set_flashdata('toast_data_title', 'Post Deleted Successfully!');
