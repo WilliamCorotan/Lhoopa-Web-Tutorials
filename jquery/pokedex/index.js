@@ -37,44 +37,53 @@ $(function () {
                 $('#back').attr('href', data.previous)
                 $('#next').attr('href', data.next)
 
-                $('.pokemon-card').on('click',  function(){
-                    console.log($(this).attr('data-pokemon-name'))
-                    $.ajax({
-                        type: "GET",
-                        dataType: "json",
-                        url: `https://pokeapi.co/api/v2/pokemon/${$(this).attr('data-pokemon-name')}/`,
-                    }).done(function (response) {
-                    console.log(response);
-                    $('#error-message').remove();
-                    $(".search-card > .card-title").html(response.name)
-                    
-                    $('.badge').remove();
-                    $('.list-group-item').remove();
-            
-                    response.types.forEach(type => {        
-                        $('.search-card > .card-body').append(badge(type.type.name))
-                    });
-            
-                    $('.card-img-top').attr('src', response.sprites.front_default);
-            
-                    response.stats.forEach(stat => {
-                        $('.list-group').append(listItem(stat.stat.name, stat.base_stat))
-                    });
-            
-                    $('.search-card').removeClass('d-none');
-            
-                    }).fail(function(){
-                        const errorMessage = `<p id="error-message" class="display-5">Pokemon Not Found!</p>`
-                        $('.search-card').addClass('d-none');
-                        $('#error-message').remove();
-            
-                        $('#title').after(errorMessage);
-                    })
-                  })
+                
             });
     }
         
     fetchPokemons();
+ 
+    /**
+     * 
+     * onclick of the document, finds the class
+     * 
+     * $(document).on(event, targetedHTMLElement, callbackFunction)
+     * 
+     */
+    $(document).on('click', ".pokemon-card", function(){
+        console.log($(this).attr('data-pokemon-name'))
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: `https://pokeapi.co/api/v2/pokemon/${$(this).attr('data-pokemon-name')}/`,
+        }).done(function (response) {
+        console.log(response);
+        $('#error-message').remove();
+        $(".search-card > .card-title").html(response.name)
+        
+        $('.badge').remove();
+        $('.list-group-item').remove();
+
+        response.types.forEach(type => {        
+            $('.search-card > .card-body').append(badge(type.type.name))
+        });
+
+        $('.card-img-top').attr('src', response.sprites.front_default);
+
+        response.stats.forEach(stat => {
+            $('.list-group').append(listItem(stat.stat.name, stat.base_stat))
+        });
+
+        $('.search-card').removeClass('d-none');
+
+        }).fail(function(){
+            const errorMessage = `<p id="error-message" class="display-5">Pokemon Not Found!</p>`
+            $('.search-card').addClass('d-none');
+            $('#error-message').remove();
+
+            $('#title').after(errorMessage);
+        })
+      })
 
     $('#next').on('click', function(event){
         console.log(event.currentTarget)
