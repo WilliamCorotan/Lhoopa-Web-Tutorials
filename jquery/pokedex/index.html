@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Pokemon API</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+    <!-- place navbar here -->
+    <nav class="navbar bg-dark py-4">
+        <div class="container-fluid">
+            <a class="navbar-brand text-bg-dark">Pokemon Index</a>
+            <div id="search-form" class="d-flex" role="search">
+                <div class="input-group">
+                    <input class="form-control" type="text" id="search" name="search"  aria-label="Search">
+                    <button id="search-button" class="btn btn-outline-success" type="submit">Search</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <main class="container ">
+        
+        <div class="mt-5 grid place-items-center">
+            <h2 id="title" class="display-2 mb-4">Pokemon Index <i id="reset" class="fa-solid fa-rotate-right fa-2xs"></i></h2>
+            <div class="row w-100">
+                <div class="col-9">
+                    <h3>Pokemon List</h3>
+                    <div class="pokemon-grid row row-cols-4">
+                    </div>
+                    <button id="back" class="btn btn-primary" href="">back</button>
+                    <button id="next" class="btn btn-primary" href="">next</button> 
+                </div>
+                <div class="col-3">
+                    <h3> Search Results</h3>
+                    <div class="d-none card search-card">
+                        <img src="" class="card-img-top" alt="" >
+                        <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <span class="badge rounded-pill text-bg-dark"></span>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    <!-- place footer here -->
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+
+    <!-- JQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="./index.js"></script>
+</body>
+
+</html>
