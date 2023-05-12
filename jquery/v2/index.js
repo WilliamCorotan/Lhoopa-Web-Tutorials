@@ -4,6 +4,7 @@ $(function () {
     let rightOperand = '';
     let operator = '';
     let result = '';
+    let displayText = '';
 
     
 /**
@@ -41,8 +42,9 @@ $(function () {
          */
         if(operator){
             const $rightOperand = $(this).val();
-            rightOperand += ($rightOperand)     
-            $('.calculator-screen').val(rightOperand)
+            rightOperand += ($rightOperand)
+            displayText += $rightOperand     
+            $('.calculator-screen').val(displayText)
             return
         }
         
@@ -51,7 +53,8 @@ $(function () {
          */
         const $leftOperand = $(this).val();
         leftOperand += ($leftOperand)
-        $('.calculator-screen').val(leftOperand)
+        displayText = leftOperand;
+        $('.calculator-screen').val(displayText)
     })
     
     /**
@@ -62,26 +65,52 @@ $(function () {
         /**
          * Checks if left and right operands has values
         */ 
-       if(leftOperand && rightOperand){
+       if(leftOperand && rightOperand ){
            const eval = evaluate(parseFloat(leftOperand));
-           result = eval(parseFloat(rightOperand), operator);
-           $('.calculator-screen').val(result)
+           result = eval(parseFloat(rightOperand),operator);
+           displayText = result + $(this).val()
+
+           /**
+            * Removes equals sign (=) from end of the displayed text 
+            */
+            if($(this).val() === '='){
+                displayText = displayText.slice(0,-1)
+            }
+
+           $('.calculator-screen').val(displayText)
            leftOperand = result.toString()
            rightOperand = ''
+            
         }
         
         /**
          * Checks if the operation is equals (=)
         */
        if($(this).val == "="){
-           $('.calculator-screen').val(result)
+           displayText = result
+           $('.calculator-screen').val(displayText)
            leftOperand = result.toString()
            rightOperand = ''
         }        
 
         const $operator = $(this).val();
         operator = $operator;
-        $('.operator-display').val(operator)
+
+        /**
+         * Replaces previous operator with the updated operator chosen
+         */
+        if(displayText.slice(-1) === '+' || displayText.slice(-1) === '-' || displayText.slice(-1) === '*' || displayText.slice(-1) === '/'){
+            displayText = displayText.slice(0, -1) + operator
+            $('.calculator-screen').val(displayText)
+        }
+        else{
+            if(operator === '=') {
+                $('.calculator-screen').val(displayText)
+                return
+            }
+            displayText += operator
+            $('.calculator-screen').val(displayText)
+        }
     })
 
     /**
@@ -120,7 +149,8 @@ $(function () {
         if(operator){
             const $decimal = $(this).val();
             rightOperand += ($decimal)
-            $('.calculator-screen').val(rightOperand)
+            displayText += $decimal
+            $('.calculator-screen').val(displayText)
             return
         }
 
