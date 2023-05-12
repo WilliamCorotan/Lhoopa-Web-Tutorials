@@ -7,7 +7,7 @@ $(function () {
     }
     
     function listItem(key, value){
-        return `<li class="list-group-item col">${key}: ${value}</li>`
+        return `<li class="list-group-item col"><span>${key}: ${value}</span></li>`
     }
     
     function pokemonCard(name){
@@ -28,7 +28,6 @@ $(function () {
             async: false
             })
             .done(function (data) {
-                console.log(data)
                 $('.pokemon-grid').children().remove() 
 
                 data.results.forEach(result => {
@@ -51,30 +50,49 @@ $(function () {
      * 
      */
     $(document).on('click', ".pokemon-card", function(){
-        console.log($(this).attr('data-pokemon-name'))
         $.ajax({
             type: "GET",
             dataType: "json",
             url: `https://pokeapi.co/api/v2/pokemon/${$(this).attr('data-pokemon-name')}/`,
+            beforeSend: function(){
+                
+                $('.card-img-top').attr('src', './no-image.png')
+                $('.card-img-top').css({
+                    height: '208px'
+                })
+                $('.card-img-top').addClass('placeholder')
+                $('.search-card > .card-body').addClass('placeholder-glow')
+                $(".search-card > .card-body > .card-title").addClass('placeholder d-block border rounded-pill')
+                $(".search-card > .card-body > .badge").html('type')
+                $(".search-card > .card-body > .badge").addClass('placeholder')
+                $('.list-group').addClass('placeholder-glow')
+                $('.list-group-item > span').addClass('placeholder border rounded-pill')
+            }
         }).done(function (response) {
-        console.log(response);
-        $('#error-message').remove();
-        $(".search-card > .card-title").html(response.name)
-        
-        $('.badge').remove();
-        $('.list-group-item').remove();
+            $('.card-img-top').removeClass('placeholder')
+            $('.search-card > .card-body').removeClass('placeholder-glow')
+            $(".search-card > .card-body > .card-title").removeClass('placeholder d-block border rounded-pill')
+            $(".search-card > .card-body > .badge").removeClass('placeholder')
+            $('.list-group').removeClass('placeholder-glow')
+            $('.list-group-item > span').removeClass('placeholder border rounded-pill')
 
-        response.types.forEach(type => {        
-            $('.search-card > .card-body').append(badge(type.type.name))
-        });
+            $('#error-message').remove();
+            $(".search-card > .card-body > .card-title").html(response.name)
+            
+            $('.badge').remove();
+            $('.list-group-item').remove();
 
-        $('.card-img-top').attr('src', response.sprites.front_default);
+            response.types.forEach(type => {        
+                $('.search-card > .card-body').append(badge(type.type.name))
+            });
 
-        response.stats.forEach(stat => {
-            $('.list-group').append(listItem(stat.stat.name, stat.base_stat))
-        });
+            $('.card-img-top').attr('src', response.sprites.front_default);
 
-        $('.search-card').removeClass('d-none');
+            response.stats.forEach(stat => {
+                $('.list-group').append(listItem(stat.stat.name, stat.base_stat))
+            });
+
+            $('.search-card').removeClass('d-none');
 
         }).fail(function(){
             const errorMessage = `<p id="error-message" class="display-5">Pokemon Not Found!</p>`
