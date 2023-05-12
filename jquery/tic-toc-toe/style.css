@@ -1,0 +1,15 @@
+.grid{
+    display: grid
+}
+
+.place-items-center{
+    place-items: center;
+}
+
+.w-32{
+    width: 8rem;
+}
+
+.h-32{
+    height: 8rem;
+}
