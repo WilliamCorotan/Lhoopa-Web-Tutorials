@@ -1,12 +1,15 @@
+let genres;
+
 $.ajax({
     type: "GET",
     url: "https://api.themoviedb.org/3/genre/movie/list?language=en",
     dataType: "json",
+    async: false,
     headers: {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1M2Q3NGM5OGU5ODg4MTQ5MDVmMDY5Y2JhYWQ2M2Q4OCIsInN1YiI6IjY0NWRmMWQ1ZjkwYjE5MDBmZTEwMWNmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zaYztHODPZMerK-jb8Lw5MItdRP-u2JvdRxFOJajPqA' 
     },
     success: function (response) {
-        console.log(response)
+        genres = response.genres;
     }
 });
 
@@ -29,13 +32,17 @@ function navbar(){
             </li>
             <li class="nav-item dropdown">
                 <a type="button" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
+                Genres
                 </a>
                 <ul class="dropdown-menu">
-                <li><a type="button" class="dropdown-item" href="#">Action</a></li>
-                <li><a type="button" class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a type="button" class="dropdown-item" href="#">Something else here</a></li>
+                    <div class="container">
+                        <div class="row my-4 w-max-content">
+                        
+                            ${genres.map(genre => {
+                                return `<li class="col-3 " ><a type="button" class="dropdown-item w-0" href="#">${genre.name}</a></li>`
+                            })}
+                        </div>
+                    </div>
                 </ul>
             </li>
             </ul>
