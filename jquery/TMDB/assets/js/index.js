@@ -1,4 +1,5 @@
-import  navbar from "./components/navbar";
+import navbar from "./components/navbar";
+import footer from "./components/footer";
 import homepage from "./layout/homepage";
 import movieIndex from "./pages";
 
@@ -40,4 +41,6 @@ $(function () {
             }
         });
     })
+
+    $('#main-footer').append(footer);
 });
