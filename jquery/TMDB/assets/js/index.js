@@ -6,6 +6,61 @@ import search from "./pages/search";
 
 
 $(function () {
+    $(document).on('click', "#pagination-previous-button", function(){
+        console.log('me prev');
+        const query = $('[name="query"]').val()
+        const include_adult = $('[name="include_adult"]').val()
+        const language = $('[name="language"]').val()
+        
+        $.ajax({
+            type: "GET",
+            url: "https://api.themoviedb.org/3/search/movie",
+            data: {
+                query,
+                include_adult,
+                language,
+                page: $(this).attr('data-page-number')
+            },
+            dataType: "json",
+            headers: {
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1M2Q3NGM5OGU5ODg4MTQ5MDVmMDY5Y2JhYWQ2M2Q4OCIsInN1YiI6IjY0NWRmMWQ1ZjkwYjE5MDBmZTEwMWNmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zaYztHODPZMerK-jb8Lw5MItdRP-u2JvdRxFOJajPqA' 
+            },
+            success: function (response) {
+                $('#app').children().remove();
+                $('#app').append(search(response, query));
+                $("html, body").animate({ scrollTop: 0 }, "fast");
+            }
+        });
+    })
+    
+    $(document).on('click', "#pagination-next-button", function(){
+        console.log('me next');
+        const query = $('[name="query"]').val()
+        const include_adult = $('[name="include_adult"]').val()
+        const language = $('[name="language"]').val()
+      
+        $.ajax({
+            type: "GET",
+            url: "https://api.themoviedb.org/3/search/movie",
+            data: {
+                query,
+                include_adult,
+                language,
+                page: $(this).attr('data-page-number')
+            },
+            dataType: "json",
+            headers: {
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1M2Q3NGM5OGU5ODg4MTQ5MDVmMDY5Y2JhYWQ2M2Q4OCIsInN1YiI6IjY0NWRmMWQ1ZjkwYjE5MDBmZTEwMWNmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zaYztHODPZMerK-jb8Lw5MItdRP-u2JvdRxFOJajPqA' 
+            },
+            success: function (response) {
+                $('#app').children().remove();
+                $('#app').append(search(response, query));
+                $("html, body").animate({ scrollTop: 0 }, "fast");
+            }
+        });
+    })
+
+
 
     $(document).on('submit', ".search-form", function(event){
         event.preventDefault();
@@ -26,7 +81,7 @@ $(function () {
             },
             success: function (response) {
                 $('#app').children().remove();
-                $('#app').append(search(response));
+                $('#app').append(search(response, searchData));
             }
         });
     })
