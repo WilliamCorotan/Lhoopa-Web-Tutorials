@@ -6,10 +6,10 @@ function hero() {
                 <h1 class="display-1">Welcome!</h1>
                 <p class="display-6">Millions of movies, TV shows and people to discover. Explore now.
                 </p>
-                <div class="input-group mt-5">
-                    <input type="text" class="form-control" placeholder="Search Movie" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-success" type="button" id="button-addon2">Search</button>
-                </div>
+                <form class="search-form input-group mt-5" role="search">
+                        <input  type="text" class="form-control search-input" placeholder="Search Movie" aria-label="Search" aria-describedby="search-button">
+                        <button class="btn btn-success" type="submit" id="button-addon2">Search</button>
+                </form>
             </div>
         </section>  
         `

@@ -2,9 +2,35 @@ import navbar from "./components/navbar";
 import footer from "./components/footer";
 import homepage from "./layout/homepage";
 import movieIndex from "./pages";
+import search from "./pages/search";
 
 
 $(function () {
+
+    $(document).on('submit', ".search-form", function(event){
+        event.preventDefault();
+        const searchData = $(this).children('.search-input').val()
+
+        $.ajax({
+            type: "GET",
+            url: "https://api.themoviedb.org/3/search/movie",
+            data: {
+                query: searchData,
+                include_adult: false,
+                language: 'en-US',
+                page: 1
+            },
+            dataType: "json",
+            headers: {
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1M2Q3NGM5OGU5ODg4MTQ5MDVmMDY5Y2JhYWQ2M2Q4OCIsInN1YiI6IjY0NWRmMWQ1ZjkwYjE5MDBmZTEwMWNmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zaYztHODPZMerK-jb8Lw5MItdRP-u2JvdRxFOJajPqA' 
+            },
+            success: function (response) {
+                $('#app').children().remove();
+                $('#app').append(search(response));
+            }
+        });
+    })
+
     $('#navbar-header').append(navbar);
 
     $('#app').append(homepage);
