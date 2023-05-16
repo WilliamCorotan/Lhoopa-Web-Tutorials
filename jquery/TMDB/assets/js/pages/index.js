@@ -19,7 +19,7 @@ function movieIndex(data){
                 
                 <!-- Movie Poster Section -->
                 <div class="movie-poster col-lg-4">
-                    <img class="rounded w-100" src="${'https://image.tmdb.org/t/p/w500' + data.poster_path}" alt="${data.title}">
+                    <img class="rounded w-100" src="${(data.poster_path)? 'https://image.tmdb.org/t/p/w500' + data.poster_path : '../../../public/no-image.svg'}" alt="${data.title}">
                 </div>
 
                 <!-- Movie Details Section -->
