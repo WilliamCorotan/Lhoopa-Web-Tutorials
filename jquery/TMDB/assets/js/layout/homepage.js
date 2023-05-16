@@ -109,10 +109,9 @@ function homepage() {
                             
 </section>
 
-<section class="container">
+<section id="genre-container" class="container">
 ${genres.map((el)=>{
     return genre(el);
-
 }).join('')}
 </section>
         </div>

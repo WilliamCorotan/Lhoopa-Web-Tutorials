@@ -1,3 +1,5 @@
+import homepage from "../layout/homepage";
+
 let genres;
 
 $.ajax({
@@ -12,6 +14,10 @@ $.ajax({
         genres = response.genres;
     }
 });
+
+$(document).on('click', "#navbar-brand", function() {
+    location.reload();
+})
 
 function navbar(){
    return (
